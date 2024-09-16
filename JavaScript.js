@@ -10,3 +10,17 @@ function getComputerChoice() {
             return 'Scissors';
     }
 }
+
+function getHumanChoice() {
+    let choice = prompt('Choose your weapon: Rock, Paper, Scissors!');
+
+    if (choice.toUpperCase() === 'ROCK') {
+        return 'You chose Rock!';
+    } else if (choice.toUpperCase() === 'PAPER') {
+        return 'You chose Paper!';
+    } else if (choice.toUpperCase() === 'SCISSORS') {
+        return 'You chose Scissors!';
+    } else {
+        return 'That\'s not a valid choice!';
+    }
+}
