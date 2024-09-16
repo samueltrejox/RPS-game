@@ -1,5 +1,6 @@
 let humanScore = 0;
 let computerScore = 0;
+let round = 5;
 
 function getComputerChoice() {
     let randomNumber = Math.floor(Math.random() * 3);
@@ -15,6 +16,7 @@ function getComputerChoice() {
 }
 
 function getHumanChoice() {
+
     let choice = prompt('Choose your weapon: Rock, Paper, Scissors!');
 
     if (choice.toLowerCase() === 'rock') {
@@ -38,21 +40,33 @@ function playRound(getHumanChoice, getComputerChoice){
     }
 
     if (human === computer) {
-        console.log('It\'s a tie! You both chose ' + getHumanChoice);
+        console.log('You both chose ' + getHumanChoice);
     } else if (
         (human === 'rock' && computer === 'scissors') ||
         (human === 'paper' && computer === 'rock') ||
         (human === 'scissors' && computer === 'paper')
     ) {
-        console.log('You win! ' + getHumanChoice + ' beats ' + getComputerChoice);
-        ++humanScore;
+        console.log('You win this round! ' + getHumanChoice + ' beats ' + getComputerChoice);
+        humanScore++;
     } else {
-        console.log('You lose! ' + getComputerChoice + ' beats ' + getHumanChoice + ', try again!');
-        ++computerScore;
+        console.log('You lose this round! ' + getComputerChoice + ' beats ' + getHumanChoice + ', try again!');
+        computerScore++;
     }
 }
 
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
+function playGame() {
+playRound(getHumanChoice(), getComputerChoice());
+console.log('You: ' + humanScore + ' Computer: ' + computerScore);
+}
 
-playRound(humanSelection, computerSelection);
+while (humanScore !== 5 && computerScore !== 5) {
+        playGame();
+    }
+
+if (humanScore === 5) {
+    console.log('You win the game! Are you some kind of seer?');
+} else if (humanScore === computerScore) {
+    console.log('It\'s a tie... That\'s unacceptable, please play again!');
+} else {
+    console.log('You lose the game! With practice the student becomes the master');
+}
