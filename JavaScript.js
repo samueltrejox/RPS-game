@@ -1,6 +1,5 @@
 let humanScore = 0;
 let computerScore = 0;
-let round = 5;
 
 function getComputerChoice() {
     let randomNumber = Math.floor(Math.random() * 3);
@@ -16,57 +15,61 @@ function getComputerChoice() {
 }
 
 function getHumanChoice() {
-
     let choice = prompt('Choose your weapon: Rock, Paper, Scissors!');
+    
+    if (choice === null) {
+        return 'invalid';
+    }
 
-    if (choice.toLowerCase() === 'rock') {
+    choice = choice.trim().toLowerCase();
+    if (choice === 'rock') {
         return 'Rock';
-    } else if (choice.toLowerCase() === 'paper') {
+    } else if (choice === 'paper') {
         return 'Paper';
-    } else if (choice.toLowerCase() === 'scissors') {
+    } else if (choice === 'scissors') {
         return 'Scissors';
     } else {
         return 'invalid';
     }
 }
 
-function playRound(getHumanChoice, getComputerChoice){
+function playRound(humanChoice, computerChoice) {
+    humanChoice = humanChoice.toLowerCase();
+    computerChoice = computerChoice.toLowerCase();
 
-    let human = getHumanChoice.toLowerCase();
-    let computer = getComputerChoice.toLowerCase();
-
-    if (human === 'invalid') {
-        alert('That\'s not a valid choice!'); return;
+    if (humanChoice === 'invalid') {
+        alert('That\'s not a valid choice!');
+        return;
     }
 
-    if (human === computer) {
-        alert('You both chose ' + getHumanChoice);
+    if (humanChoice === computerChoice) {
+        alert('You both chose ' + humanChoice.charAt(0).toUpperCase() + humanChoice.slice(1));
     } else if (
-        (human === 'rock' && computer === 'scissors') ||
-        (human === 'paper' && computer === 'rock') ||
-        (human === 'scissors' && computer === 'paper')
+        (humanChoice === 'rock' && computerChoice === 'scissors') ||
+        (humanChoice === 'paper' && computerChoice === 'rock') ||
+        (humanChoice === 'scissors' && computerChoice === 'paper')
     ) {
-        alert('You win this round! ' + getHumanChoice + ' beats ' + getComputerChoice);
+        alert('You win this round! ' + humanChoice.charAt(0).toUpperCase() + humanChoice.slice(1) + ' beats ' + computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1));
         humanScore++;
     } else {
-        alert('You lose this round! ' + getComputerChoice + ' beats ' + getHumanChoice + ', try again!');
+        alert('You lose this round! ' + computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1) + ' beats ' + humanChoice.charAt(0).toUpperCase() + humanChoice.slice(1) + ', try again!');
         computerScore++;
     }
 }
 
 function playGame() {
-playRound(getHumanChoice(), getComputerChoice());
-alert('You: ' + humanScore + ' Computer: ' + computerScore);
+    let humanChoice = getHumanChoice();
+    let computerChoice = getComputerChoice();
+    playRound(humanChoice, computerChoice);
+    alert('You: ' + humanScore + ' Computer: ' + computerScore);
 }
 
-while (humanScore !== 5 && computerScore !== 5) {
-        playGame();
-    }
+while (humanScore < 5 && computerScore < 5) {
+    playGame();
+}
 
 if (humanScore === 5) {
     alert('You win the game! Are you some kind of seer?');
-} else if (humanScore === computerScore) {
-    alert('It\'s a tie... That\'s unacceptable, please play again!');
-} else {
+} else if (computerScore === 5) {
     alert('You lose the game! With practice the student becomes the master');
 }
