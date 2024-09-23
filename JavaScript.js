@@ -2,6 +2,7 @@ let humanScore = 0;
 let computerScore = 0;
 
 function getComputerChoice() {
+
     let randomNumber = Math.floor(Math.random() * 3);
 
     switch(randomNumber) {
@@ -15,9 +16,10 @@ function getComputerChoice() {
 }
 
 function getHumanChoice() {
+
     let choice = prompt('Choose your weapon: Rock, Paper, Scissors!');
     
-    if (choice === null) {
+    while (choice === null) {
         return 'invalid';
     }
 
@@ -34,32 +36,42 @@ function getHumanChoice() {
 }
 
 function playRound(humanChoice, computerChoice) {
+
     humanChoice = humanChoice.toLowerCase();
     computerChoice = computerChoice.toLowerCase();
 
     if (humanChoice === 'invalid') {
         alert('That\'s not a valid choice!');
         return;
-    }
 
-    if (humanChoice === computerChoice) {
-        alert('You both chose ' + humanChoice.charAt(0).toUpperCase() + humanChoice.slice(1));
-    } else if (
-        (humanChoice === 'rock' && computerChoice === 'scissors') ||
-        (humanChoice === 'paper' && computerChoice === 'rock') ||
-        (humanChoice === 'scissors' && computerChoice === 'paper')
-    ) {
-        alert('You win this round! ' + humanChoice.charAt(0).toUpperCase() + humanChoice.slice(1) + ' beats ' + computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1));
-        humanScore++;
+    } else if (humanChoice === computerChoice) {
+            alert('You both chose ' + humanChoice);
+
+    } else if ((humanChoice === 'rock' && computerChoice === 'scissors') ||
+            (humanChoice === 'paper' && computerChoice === 'rock') ||
+            (humanChoice === 'scissors' && computerChoice === 'paper')) { 
+                alert(
+                'You win this round! ' +
+                humanChoice +
+                ' beats ' +
+                computerChoice);
+                humanScore++;
     } else {
-        alert('You lose this round! ' + computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1) + ' beats ' + humanChoice.charAt(0).toUpperCase() + humanChoice.slice(1) + ', try again!');
+        alert(
+            'You lose this round! ' +
+            computerChoice +
+            ' beats ' +
+            humanChoice +
+            ', try again!');
         computerScore++;
     }
 }
 
 function playGame() {
+
     let humanChoice = getHumanChoice();
     let computerChoice = getComputerChoice();
+
     playRound(humanChoice, computerChoice);
     alert('You: ' + humanScore + ' Computer: ' + computerScore);
 }
