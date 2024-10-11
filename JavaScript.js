@@ -17,7 +17,7 @@ function getComputerChoice() {
 
 function getHumanChoice() {
 
-    let choice = prompt('Choose your weapon: Rock, Paper, Scissors!');
+    let choice = console.log(prompt('Choose your weapon: Rock, Paper, Scissors!'));
     
     while (choice === null) {
         return 'invalid';
@@ -40,24 +40,23 @@ function playRound(humanChoice, computerChoice) {
     humanChoice = humanChoice.toLowerCase();
     computerChoice = computerChoice.toLowerCase();
 
-    if (humanChoice === 'invalid') {
-        alert('That\'s not a valid choice!');
+    while (humanChoice === 'invalid') {
         return;
-
-    } else if (humanChoice === computerChoice) {
-            alert('You both chose ' + humanChoice);
+    }
+    if (humanChoice === computerChoice) {
+            console.log('You both chose ' + humanChoice);
 
     } else if ((humanChoice === 'rock' && computerChoice === 'scissors') ||
             (humanChoice === 'paper' && computerChoice === 'rock') ||
             (humanChoice === 'scissors' && computerChoice === 'paper')) { 
-                alert(
+                console.log(
                 'You win this round! ' +
                 humanChoice +
                 ' beats ' +
                 computerChoice);
                 humanScore++;
     } else {
-        alert(
+        console.log(
             'You lose this round! ' +
             computerChoice +
             ' beats ' +
@@ -73,15 +72,15 @@ function playGame() {
     let computerChoice = getComputerChoice();
 
     playRound(humanChoice, computerChoice);
-    alert('You: ' + humanScore + ' Computer: ' + computerScore);
+    console.log('You: ' + humanScore + ' Computer: ' + computerScore);
 }
 
-while (humanScore < 5 && computerScore < 5) {
+/* while (humanScore < 5 && computerScore < 5) {
     playGame();
 }
 
 if (humanScore === 5) {
-    alert('You win the game! Are you some kind of seer?');
+    console.log('You win the game! Are you some kind of seer?');
 } else if (computerScore === 5) {
-    alert('You lose the game! With practice the student becomes the master');
-}
+    console.log('You lose the game! With practice the student becomes the master');
+} */
