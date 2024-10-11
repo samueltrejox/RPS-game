@@ -1,48 +1,68 @@
 html * {
     box-sizing: border-box;
+    font-family: monospace;
     margin: 0;
     padding: 0;
-    font-family: monospace;
 }
 
 body {
-    background-color: var(--nude);
+    background: rgb(232,197,190);
+    background: radial-gradient(circle, #e3ffe7 0%, #F4F4D3 35% , #d9e7ff 100%);
 }
 
 :root {
-    --red: #ED6A5A;
-    --darkred: #e94f37;
-    --blue: #9BC1BC;
-    --darkblue: #424c86;
-    --nude: #F4F1BB;
-   
+   --nude: #feffdf;
+   --cream: #dde0ab;
+   --green: #97cba9;
+   --blue: #668ba4;
+}
+
+main {
+    color: var(--blue);
+    text-align: center;
+    padding: 20px;
+    border: 5px solid var(--blue);
+    margin: 15vh 35vw 0;
+}
+
+h2 {
+    padding-bottom: 100px;
+    text-align: center;
 }
 
 .btn {
     width: 120px;
     height: 120px;
-    background-color: var(--blue);
-    color: var(--darkred);
-    border: 3px dashed var(--red);
+    background-color: var(--cream);
+    border: 3px dashed var(--green);
     border-radius: 10%;
-    font-size: 1.2rem;
-    font-weight: bold;
-    text-transform: uppercase;
-    box-shadow: 5px 5px var(--darkred);
+    box-shadow: 5px 5px var(--green);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#rock-png,
+#paper-png,
+#scissors-png {
+    width: 60px;
+    height: auto;
 }
 
 .btn:hover {
-    background-color: var(--red);
-    color: var(--darkblue);
-    box-shadow: 5px 5px var(--darkblue);
-    width: 130px;
-    height: 130px;
+    background-color: var(--nude);
+    box-shadow: 5px 5px var(--blue);
+    border: 3px dashed var(--blue);
     cursor: pointer;
 }
 
 div {
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
-    padding-top: 200px;
+    gap: 8%;
+    justify-content: center;
+}
+
+#section-1 {
+    padding-top: 10%;
 }

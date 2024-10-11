@@ -4,15 +4,26 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles.css" />
-    <title>Rock Paper Scissors Game</title>
+    <title>Rock Paper Scissors - TOP</title>
 </head>
 <body>
-    <div>
-    <button id="rock" class="btn">Rock</button>
-    <button id="paper" class="btn">Paper</button>
-    <button id="scissors" class="btn">Scissors</button>
-    </div>
+    <main>
+    <h1>Rock, Paper, Scissors Game!</h1>
+    <p>Display for The Odin Project: Foundations</p>
+    </main>
 
+    <section id="section-1">
+    <h2>Choose your weapon and beat your opponent (Our beloved computer)!</h2>
+    <div>
+    <button id="rock" class="btn" class="shadow-drop"><img id="rock-png" src="assets/rock.png" alt="rock"></button>
+    <button id="paper" class="btn" class="shadow-drop"><img id="paper-png" src="assets/paper.png" alt="paper"></button>
+    <button id="scissors" class="btn" class="shadow-drop"><img id="scissors-png" src="assets/scissors.png" alt="scissors"></button>
+    </div>
+    </section>
+
+    <section id="section-2">
+        <div id="results-disp"></div>
+    </section>
 
     <script src="JavaScript.js"></script>
 </body>
