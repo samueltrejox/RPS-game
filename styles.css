@@ -7,13 +7,13 @@ html * {
 
 body {
     background: rgb(232,197,190);
-    background: radial-gradient(circle, #e3ffe7 0%, #F4F4D3 35% , #d9e7ff 100%);
+    background: radial-gradient(circle, #aecbee 0%, #b5eabe 35% , #b5d5ea 100%);
 }
 
 :root {
    --nude: #feffdf;
    --cream: #dde0ab;
-   --green: #97cba9;
+   --green: #70a482;
    --blue: #668ba4;
 }
 
@@ -21,39 +21,16 @@ main {
     color: var(--blue);
     text-align: center;
     padding: 20px;
-    border: 5px solid var(--blue);
+    border: 5px solid var(--green);
+    border-radius: 10px;
     margin: 15vh 35vw 0;
+    line-height: 2rem;
 }
-
-h2 {
-    padding-bottom: 100px;
-    text-align: center;
-}
-
-.btn {
-    width: 120px;
-    height: 120px;
-    background-color: var(--cream);
-    border: 3px dashed var(--green);
-    border-radius: 10%;
-    box-shadow: 5px 5px var(--green);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
 #rock-png,
 #paper-png,
 #scissors-png {
     width: 60px;
     height: auto;
-}
-
-.btn:hover {
-    background-color: var(--nude);
-    box-shadow: 5px 5px var(--blue);
-    border: 3px dashed var(--blue);
-    cursor: pointer;
 }
 
 div {
@@ -63,6 +40,42 @@ div {
     justify-content: center;
 }
 
-#section-1 {
-    padding-top: 10%;
+h2 {
+    text-align: center;
+    margin-bottom: 50px;
 }
+
+#section-1 {
+    color: var(--green);
+    padding-top: 80px;
+}
+
+#section-2 {
+    border: solid 3px var(--green);
+    box-shadow: 0 0 20px var(--green);
+    border-radius: 10px;
+    padding: 50px;
+    margin: 5% 30%;
+    text-align: center;
+}
+
+button {
+  width: 120px;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 7px var(--green);
+  background-color: var(--nude);
+  border: dashed 3px var(--cream);
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:active {
+    background-color: var(--nude);
+    box-shadow: 0 3px var(--green);
+    transform: translateY(4px);
+    border: dashed 3px var(--cream);
+    border-radius: 5px;
+  }
