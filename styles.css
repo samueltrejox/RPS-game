@@ -14,7 +14,7 @@ body {
    --nude: #feffdf;
    --cream: #dde0ab;
    --green: #70a482;
-   --blue: #668ba4;
+   --blue: #56768b;
 }
 
 main {
@@ -57,6 +57,10 @@ h2 {
     padding: 50px;
     margin: 5% 30%;
     text-align: center;
+    line-height: 2.5rem;
+    font-size: 1.2rem;
+    font-weight: bolder;
+    color: var(--blue);
 }
 
 button {
@@ -70,6 +74,7 @@ button {
   border: dashed 3px var(--cream);
   border-radius: 5px;
   cursor: pointer;
+  font-size: 0;
 }
 
 button:active {

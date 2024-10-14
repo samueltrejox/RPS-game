@@ -1,81 +1,45 @@
-let humanScore = 0;
+let playerScore = 0;
 let computerScore = 0;
 
+const btns = document.querySelectorAll(".btns");
+const results = document.querySelector("#results");
+
+btns.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    const playerSelection = btn.id;
+    const computerSelection = getComputerChoice();
+    playRound(playerSelection, computerSelection);
+  });
+});
+
 function getComputerChoice() {
-
-    let randomNumber = Math.floor(Math.random() * 3);
-
-    switch(randomNumber) {
-        case 0: 
-            return 'Rock';
-        case 1: 
-            return 'Paper';
-        case 2: 
-            return 'Scissors';
-    }
+  const options = ["rock", "paper", "scissors"];
+  return options[Math.floor(Math.random() * options.length)];
 }
 
-function getHumanChoice() {
-
-    let choice = console.log(prompt('Choose your weapon: Rock, Paper, Scissors!'));
-    
-    while (choice === null) {
-        return 'invalid';
-    }
-
-    choice = choice.trim().toLowerCase();
-    if (choice === 'rock') {
-        return 'Rock';
-    } else if (choice === 'paper') {
-        return 'Paper';
-    } else if (choice === 'scissors') {
-        return 'Scissors';
-    } else {
-        return 'invalid';
-    }
+function playRound(playerSelection, computerSelection) {
+  if (playerSelection === computerSelection) {
+    results.innerText = "You both chose " + playerSelection + ", it's a tie...";
+  } else if (
+    (playerSelection === "rock" && computerSelection === "scissors") ||
+    (playerSelection === "paper" && computerSelection === "rock") ||
+    (playerSelection === "scissors" && computerSelection === "paper")
+  ) {
+    playerScore++;
+    results.innerText =
+      playerSelection + " beats " + computerSelection + ", you win this round!";
+  } else {
+    computerScore++;
+    results.innerText =
+      computerSelection +
+      " beats " +
+      playerSelection +
+      ", better luck next time D:";
+  }
+  results.innerText += `\nPlayer Score: ${playerScore}, Computer Score: ${computerScore}`;
 }
 
-function playRound(humanChoice, computerChoice) {
-
-    humanChoice = humanChoice.toLowerCase();
-    computerChoice = computerChoice.toLowerCase();
-
-    while (humanChoice === 'invalid') {
-        return;
-    }
-    if (humanChoice === computerChoice) {
-            console.log('You both chose ' + humanChoice);
-
-    } else if ((humanChoice === 'rock' && computerChoice === 'scissors') ||
-            (humanChoice === 'paper' && computerChoice === 'rock') ||
-            (humanChoice === 'scissors' && computerChoice === 'paper')) { 
-                console.log(
-                'You win this round! ' +
-                humanChoice +
-                ' beats ' +
-                computerChoice);
-                humanScore++;
-    } else {
-        console.log(
-            'You lose this round! ' +
-            computerChoice +
-            ' beats ' +
-            humanChoice +
-            ', try again!');
-        computerScore++;
-    }
-}
-
-function playGame() {
-
-    let humanChoice = getHumanChoice();
-    let computerChoice = getComputerChoice();
-
-    playRound(humanChoice, computerChoice);
-    console.log('You: ' + humanScore + ' Computer: ' + computerScore);
-}
-
-/* while (humanScore < 5 && computerScore < 5) {
+/* while (humanScore != 5 && computerScore != 5) {
     playGame();
 }
 
