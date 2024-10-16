@@ -28,7 +28,8 @@ function playRound(playerSelection, computerSelection) {
     (playerSelection === "paper" && computerSelection === "rock") ||
     (playerSelection === "scissors" && computerSelection === "paper")
   ) {
-    results.innerText = playerSelection + " beats " + computerSelection + ", you win this round!";
+    results.innerText =
+      playerSelection + " beats " + computerSelection + ", you win this round!";
     playerScore++;
   } else {
     computerScore++;
@@ -37,24 +38,26 @@ function playRound(playerSelection, computerSelection) {
       " beats " +
       playerSelection +
       ", better luck next time D:";
-    }
+  }
 
-    updateScore();
-    
-    if (playerScore === 5 || computerScore === 5) {
-      gameOver();
-    }
+  updateScore();
+
+  if (playerScore === 5 || computerScore === 5) {
+    gameOver();
+  }
 }
 
 function gameOver() {
-  results.innerText = '';
+  results.innerText = "";
   const winnerMessage = document.createElement("div");
   winnerMessage.classList.add("small-br");
-  
+
   if (playerScore === 5) {
-    winnerMessage.innerText = "Congratulations, you win! You deceived the computer";
+    winnerMessage.innerText =
+      "Congratulations, you win! You deceived the computer";
   } else if (computerScore === 5) {
-    winnerMessage.innerText = "You lose! With practice the student becomes the master";
+    winnerMessage.innerText =
+      "You lose! With practice the student becomes the master";
   }
 
   section2.appendChild(winnerMessage);
